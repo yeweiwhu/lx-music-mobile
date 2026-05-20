@@ -32,6 +32,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Create placeholder keystore.properties
+        run: |
+          echo "storeFile=debug.keystore" > android/keystore.properties
+          echo "storePassword=android" >> android/keystore.properties
+          echo "keyAlias=androiddebugkey" >> android/keystore.properties
+          echo "keyPassword=android" >> android/keystore.properties
+
       - name: Build debug APK
         run: npm run pack:android:debug
 
