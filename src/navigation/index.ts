@@ -15,6 +15,9 @@ const init = (callback: () => void | Promise<void>) => {
   if (unRegisterEvent) unRegisterEvent.remove()
 
   Navigation.setDefaultOptions({
+    layout: {
+      backgroundColor: '#5ed698',
+    },
     // animations: {
     //   setRoot: {
     //     waitForRender: true,
