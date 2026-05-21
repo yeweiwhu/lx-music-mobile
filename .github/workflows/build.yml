@@ -40,7 +40,9 @@ jobs:
           echo "keyPassword=android" >> android/keystore.properties
 
       - name: Build debug APK
-        run: npm run pack:android:debug
+        run: |
+          cd android && ./gradlew assembleDebug
+          find . -name "*.apk" 2>/dev/null || dir /s /b *.apk 2>nul
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
